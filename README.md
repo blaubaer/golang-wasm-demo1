@@ -17,7 +17,7 @@ Demonstrates Webassembly created using Golang.
 ## Build
 
 ```bash
-GOOS=js GOARCH=wasm go build -out docs/app.wasm ./...
+GOOS=js GOARCH=wasm go build -o docs/app.wasm ./...
 ```
 
 ## Try it out
