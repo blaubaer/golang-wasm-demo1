@@ -8,7 +8,6 @@ import (
 )
 
 var document = js.Global().Get("document")
-var console = js.Global().Get("console")
 
 func getElementById(id string) js.Value {
 	return document.Call("getElementById", id)
@@ -29,7 +28,6 @@ func renderEditor(parent js.Value) js.Value {
 func main() {
 	done := make(chan struct{})
 
-	console.Call("warn", "foo")
 	renderEditor(document.Get("body"))
 	markdown := getElementById("markdown")
 	preview := getElementById("preview")
