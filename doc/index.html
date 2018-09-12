@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Golang Web Assembly Examples</title>
+    <script src="wasm_exec.js"></script>
+    <script type="text/javascript">
+        function ready() {
+            (async () => {
+                const go = new Go();
+                const {module, instance} = await WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject);
+                await go.run(instance);
+                await WebAssembly.instantiate(module, go.importObject);
+            })();
+        }
+    </script>
+</head>
+
+<body onload="ready()">
+
+</body>
+</html>
