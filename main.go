@@ -27,6 +27,8 @@ func renderEditor(parent js.Value) js.Value {
 }
 
 func main() {
+	done := make(chan struct{})
+
 	console.Call("warn", "foo")
 	renderEditor(document.Get("body"))
 	markdown := getElementById("markdown")
@@ -38,4 +40,6 @@ func main() {
 		html := github_flavored_markdown.Markdown([]byte(md))
 		preview.Set("innerHTML", string(html))
 	}))
+
+	<-done
 }
