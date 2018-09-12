@@ -6,7 +6,7 @@
         function ready() {
             (async () => {
                 const go = new Go();
-                const {module, instance} = await WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject);
+                const {module, instance} = await WebAssembly.instantiateStreaming(fetch("app.wasm"), go.importObject);
                 await go.run(instance);
                 await WebAssembly.instantiate(module, go.importObject);
             })();
